@@ -32,5 +32,5 @@ moduleinterface INic80211p
         output upperLayerOut; // from upper layers
         output upperControlOut; // control information
         input upperControlIn; // control information
-        input radioIn; // radioIn gate for sendDirect
+        input veins11pRadioIn; // radioIn gate for sendDirect
 }

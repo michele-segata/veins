@@ -30,8 +30,6 @@ module RSU
     parameters:
         string applType; //type of the application layer
         string nicType = default("Nic80211p"); // type of network interface card
-    gates:
-        input veinsradioIn; // gate for sendDirect
     submodules:
         appl: <applType> like org.car2x.veins.base.modules.IBaseApplLayer {
             parameters:
@@ -48,11 +46,9 @@ module RSU
                 @display("p=130,172;i=block/cogwheel");
         }
         
-    connections:
+    connections allowunconnected:
         nic.upperLayerOut --> appl.lowerLayerIn;
         nic.upperLayerIn <-- appl.lowerLayerOut;
         nic.upperControlOut --> appl.lowerControlIn;
         nic.upperControlIn <-- appl.lowerControlOut;
-
-        veinsradioIn --> nic.radioIn;
 }

@@ -43,7 +43,7 @@ module Nic80211p like INic80211p
         output upperLayerOut; // from upper layers
         output upperControlOut; // control information
         input upperControlIn; // control information
-        input radioIn; // radioIn gate for sendDirect
+        input veins11pRadioIn; // radioIn gate for sendDirect
 
     submodules:
         phy80211p: PhyLayer80211p {
@@ -55,7 +55,7 @@ module Nic80211p like INic80211p
         }
 
     connections:
-        radioIn --> phy80211p.radioIn;
+        veins11pRadioIn --> phy80211p.radioIn;
 
         mac1609_4.lowerControlOut --> phy80211p.upperControlIn;
         mac1609_4.lowerLayerOut --> phy80211p.upperLayerIn;
