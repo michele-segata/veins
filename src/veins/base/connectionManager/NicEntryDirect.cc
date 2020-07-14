@@ -38,7 +38,7 @@ void NicEntryDirect::connectTo(NicEntry* other)
     EV_TRACE << "connecting nic #" << nicId << " and #" << other->nicId << endl;
 
     cGate* radioGate = nullptr;
-    if ((radioGate = otherPtr->gate("veins11pRadioIn")) == nullptr) throw cRuntimeError("Nic has no veins11pRadioIn gate!");
+    if ((radioGate = otherPtr->gate(radioInGate.c_str())) == nullptr) throw cRuntimeError("Nic has no %s gate!", radioInGate.c_str());
 
     outConns[other] = radioGate->getPathStartGate();
 }

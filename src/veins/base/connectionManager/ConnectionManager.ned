@@ -46,10 +46,12 @@ simple ConnectionManager
         bool sendDirect;
         // maximum interference distance [m]
         double maxInterfDist @unit(m);
-        
+        // name of the radioIn gate to be searched for
+        string radioInGate = default("veins11pRadioIn");
+
         // should the maximum interference distance be displayed for each node?
         bool drawMaxIntfDist = default(false);
-        
+
         @display("i=abstract/multicast");
 }
 

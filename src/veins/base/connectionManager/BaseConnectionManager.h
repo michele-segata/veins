@@ -253,6 +253,9 @@ protected:
     /** @brief Does the ConnectionManager use sendDirect or not?*/
     bool sendDirect;
 
+    /** @brief name of the radioIn gate */
+    std::string radioInGate;
+
     /** @brief Stores the size of the playground.*/
     const Coord* playgroundSize;
 

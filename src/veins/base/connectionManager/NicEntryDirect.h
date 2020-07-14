@@ -43,8 +43,8 @@ class VEINS_API NicEntryDirect : public NicEntry {
 public:
     /** @brief Constructor, initializes all members
      */
-    NicEntryDirect(cComponent* owner)
-        : NicEntry(owner){};
+    NicEntryDirect(cComponent* owner, std::string radioInGate)
+        : NicEntry(owner), radioInGate(radioInGate){};
 
     /**
      * @brief Destructor -- needs to be there...
@@ -72,6 +72,9 @@ public:
      * @param other reference to remote nic (other NicEntry)
      */
     void disconnectFrom(NicEntry*) override;
+protected:
+    /** @brief radioIn gate name */
+    std::string radioInGate;
 };
 
 } // namespace veins

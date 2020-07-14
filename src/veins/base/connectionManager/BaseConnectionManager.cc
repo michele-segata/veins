@@ -81,6 +81,7 @@ void BaseConnectionManager::initialize(int stage)
             sendDirect = par("sendDirect").boolValue();
         else
             sendDirect = false;
+        radioInGate = par("radioInGate").stdstringValue();
 
         maxInterferenceDistance = calcInterfDist();
         maxDistSquared = maxInterferenceDistance * maxInterferenceDistance;
@@ -326,7 +327,7 @@ bool BaseConnectionManager::registerNic(cModule* nic, ChannelAccess* chAccess, C
     NicEntries::mapped_type nicEntry;
 
     if (sendDirect)
-        nicEntry = new NicEntryDirect(this);
+        nicEntry = new NicEntryDirect(this, radioInGate);
     else
         nicEntry = new NicEntryDebug(this);
 
